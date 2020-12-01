@@ -3,6 +3,7 @@ package com.codeclan.example.demo.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,7 @@ public class Department {
 
     public Department(String name) {
         this.name = name;
+        this.employees = new ArrayList<>();
     }
 
     public String getName() {

@@ -16,13 +16,27 @@ public class Employee {
     private String lastName;
     @Column(name="employee_number")
     private int employeeNumber;
-    
-    
 
-    public Employee(String firstName, String lastName, int employeeNumber) {
+    @ManyToOne
+    @JoinColumn(name="dept_id", nullable=false)
+    Department department;
+
+
+
+
+    public Employee(String firstName, String lastName, int employeeNumber, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeNumber = employeeNumber;
+        this.department = department;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public String getFirstName() {
