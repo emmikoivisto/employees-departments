@@ -1,8 +1,20 @@
 package com.codeclan.example.demo.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="employees")
+
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="first_name")
     private String firstName;
+    @Column(name="lasst_name")
     private String lastName;
+    @Column(name="employee_number")
     private int employeeNumber;
 
     public Employee(String firstName, String lastName, int employeeNumber) {
@@ -33,5 +45,9 @@ public class Employee {
 
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
+    }
+
+    public Employee() {
+
     }
 }
